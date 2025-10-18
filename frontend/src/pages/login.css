@@ -1,0 +1,13 @@
+.login-container {
+  color-scheme: light;
+}
+
+.login-container input {
+  background-color: white !important;
+  color: #1a202c !important;
+  color-scheme: light !important;
+}
+
+.login-container input::placeholder {
+  color: #a0aec0 !important;
+}

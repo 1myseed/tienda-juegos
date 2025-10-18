@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "1760806813247",
+    "usuario": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdwYWJsaW5uQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MDgwNjY4NH0.7uznyk_s2TOXe6Nx13RFWk4TjvfnCalUjrboFbnzLX8",
+    "productos": [
+      {
+        "_id": "1760806557723",
+        "titulo": "Ea Sports Fc26",
+        "precio": "50000",
+        "plataforma": "PC",
+        "imagen": "https://imgs.search.brave.com/jA_ZAORoRkJo_G5M_UOaFF94_lxZy31hx_U2qCFDyBU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDE1NTk2/NjE5LmpwZw",
+        "descripcion": "",
+        "stock": "100"
+      }
+    ],
+    "total": "050000",
+    "fecha": "2025-10-18T17:00:13.247Z"
+  }
+]
