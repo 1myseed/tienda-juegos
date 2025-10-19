@@ -15,13 +15,13 @@ export default function Admin({ logout }) {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await fetch('http://localhost:5000/api/products');
+    const response = await fetch('https://tienda-juegos-backend.onrender.com/api/products');
     const data = await response.json();
     setProducts(data);
   };
 
   const fetchOrders = async () => {
-    const response = await fetch('http://localhost:5000/api/orders');
+    const response = await fetch('https://tienda-juegos-backend.onrender.com/api/orders');
     const data = await response.json();
     setOrders(data);
   };
@@ -29,7 +29,7 @@ export default function Admin({ logout }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (editId) {
-      await fetch(`http://localhost:5000/api/products/${editId}`, {
+      await fetch(`https://tienda-juegos-backend.onrender.com/api/products/${editId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export default function Admin({ logout }) {
         body: JSON.stringify(form)
       });
     } else {
-      await fetch('http://localhost:5000/api/products', {
+      await fetch('https://tienda-juegos-backend.onrender.com/api/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default function Admin({ logout }) {
 
   const deleteProduct = async (id) => {
     if (window.confirm('¿Eliminar este producto?')) {
-      await fetch(`http://localhost:5000/api/products/${id}`, {
+      await fetch(`https://tienda-juegos-backend.onrender.com/api/products/${id}`, {
         method: 'DELETE'
       });
       fetchProducts();
@@ -61,7 +61,7 @@ export default function Admin({ logout }) {
 
   const deleteOrder = async (id) => {
     if (window.confirm('¿Eliminar este pedido?')) {
-      await fetch(`http://localhost:5000/api/orders/${id}`, {
+      await fetch(`https://tienda-juegos-backend.onrender.com/api/orders/${id}`, {
         method: 'DELETE'
       });
       fetchOrders();
@@ -69,7 +69,7 @@ export default function Admin({ logout }) {
   };
 
   const makeAdmin = async () => {
-    await fetch('http://localhost:5000/api/make-admin', {
+    await fetch('https://tienda-juegos-backend.onrender.com/api/make-admin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
