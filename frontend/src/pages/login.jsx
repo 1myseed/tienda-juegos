@@ -7,7 +7,7 @@ export default function Login({ setUser }) {
   const [error, setError] = useState('');
 
   // 🎨 PERSONALIZACIÓN: Coloca aquí la URL de tu logo
-  const LOGO_URL = 'https://pub-static.fotor.com/assets/projects/pages/1c698f16062749d699cacbc83b61ec4d/purple-gradient-game-company-6a9a609dc23142d2bdc461d2078ac515.jpg'; // ⬅️ Cambia esta URL por la de tu logo
+  const LOGO_URL = 'https://chatgpt.com/backend-api/estuary/content?id=file_00000000cf8862308215d789cef258af&ts=489142&p=fs&cid=1&sig=eb838e2010b488cfbac7b7402a1e7ba1f3513662bc83b20d4bf733fdc3ec796b&v=0'; // ⬅️ Cambia esta URL por la de tu logo
 
   const handleSubmit = async (e) => {
     e.preventDefault();
