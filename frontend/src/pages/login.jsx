@@ -7,7 +7,7 @@ export default function Login({ setUser }) {
   const [error, setError] = useState('');
 
   // 🎨 PERSONALIZACIÓN: Coloca aquí la URL de tu logo
-  const LOGO_URL = 'https://chatgpt.com/backend-api/estuary/content?id=file_00000000cf8862308215d789cef258af&ts=489142&p=fs&cid=1&sig=eb838e2010b488cfbac7b7402a1e7ba1f3513662bc83b20d4bf733fdc3ec796b&v=0'; // ⬅️ Cambia esta URL por la de tu logo
+  const LOGO_URL = 'https://i.ibb.co/bj1QWhtL/cd38d169-310a-4163-95fd-532dbb7c9544.png'; // ⬅️ Cambia esta URL por la de tu logo
 
   const handleSubmit = async (e) => {
     e.preventDefault();
