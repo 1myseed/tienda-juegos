@@ -69,7 +69,7 @@ export default function Tienda({ user, setUser, logout }) {
     const total = carrito.reduce((sum, p) => sum + p.precio, 0);
     const productos = carrito.map(p => p.titulo).join(', ');
     const mensaje = `Hola! Quiero confirmar mi pedido #${pedidoId.slice(-6).toUpperCase()}%0A%0AProductos: ${productos}%0ATotal: $${total}%0A%0AEnvío el comprobante de pago.`;
-    const numeroWhatsApp = '5492974588341'; // ⬅️ Cambia este número por el tuyo
+    const numeroWhatsApp = '5492975364593'; // ⬅️ Cambia este número por el tuyo
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank');
   };
 
