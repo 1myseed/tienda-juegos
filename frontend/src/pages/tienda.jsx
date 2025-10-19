@@ -43,7 +43,7 @@ export default function Tienda({ user, setUser, logout }) {
 
   const comprar = async () => {
     const total = carrito.reduce((sum, p) => sum + p.precio, 0);
-    const response = await fetch('http://localhost:5000/api/orders', {
+    const response = await fetch('https://tienda-juegos-backend.onrender.com/api/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -252,11 +252,11 @@ export default function Tienda({ user, setUser, logout }) {
               <div style={{ display: 'flex', gap: '10px' }}>
                 <input 
                   type="text" 
-                  value="0000003100010000000001" 
+                  value="0000003100067988368399" 
                   readOnly 
                   style={{ flex: 1, padding: '14px', border: 'none', borderRadius: '12px', fontSize: '16px', fontWeight: '500', background: 'rgba(255,255,255,0.95)' }}
                 />
-                <button onClick={() => copiar('0000003100010000000001')} style={{ padding: '14px 20px', background: 'rgba(255,255,255,0.2)', color: 'white', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '12px', cursor: 'pointer', fontSize: '20px', transition: 'all 0.3s' }}>
+                <button onClick={() => copiar('0000003100067988368399')} style={{ padding: '14px 20px', background: 'rgba(255,255,255,0.2)', color: 'white', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '12px', cursor: 'pointer', fontSize: '20px', transition: 'all 0.3s' }}>
                   📋
                 </button>
               </div>
@@ -267,11 +267,11 @@ export default function Tienda({ user, setUser, logout }) {
               <div style={{ display: 'flex', gap: '10px' }}>
                 <input 
                   type="text" 
-                  value="TIENDA.JUEGOS" 
+                  value="pablo.rnc" 
                   readOnly 
                   style={{ flex: 1, padding: '14px', border: 'none', borderRadius: '12px', fontSize: '16px', fontWeight: '500', background: 'rgba(255,255,255,0.95)' }}
                 />
-                <button onClick={() => copiar('TIENDA.JUEGOS')} style={{ padding: '14px 20px', background: 'rgba(255,255,255,0.2)', color: 'white', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '12px', cursor: 'pointer', fontSize: '20px', transition: 'all 0.3s' }}>
+                <button onClick={() => copiar('pablo.rnc')} style={{ padding: '14px 20px', background: 'rgba(255,255,255,0.2)', color: 'white', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '12px', cursor: 'pointer', fontSize: '20px', transition: 'all 0.3s' }}>
                   📋
                 </button>
               </div>
@@ -279,7 +279,7 @@ export default function Tienda({ user, setUser, logout }) {
 
             <div style={{ background: 'rgba(255,255,255,0.15)', padding: '15px', borderRadius: '12px' }}>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '13px', marginBottom: '5px', fontWeight: '600' }}>TITULAR</p>
-              <p style={{ fontSize: '18px', fontWeight: 'bold', color: 'white' }}>Tu Nombre Completo</p>
+              <p style={{ fontSize: '18px', fontWeight: 'bold', color: 'white' }}>Pablo Rodrigo Nahuel Cejas</p>
             </div>
           </div>
 
@@ -341,7 +341,7 @@ export default function Tienda({ user, setUser, logout }) {
     }}>
       <header style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '25px 40px', color: 'white', boxShadow: '0 5px 30px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>🎮 GAMESTORE</h1>
+          <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>🎮 DigitalPlay</h1>
           <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
             {user ? (
               <>
