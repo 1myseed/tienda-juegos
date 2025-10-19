@@ -121,6 +121,7 @@ export default function Admin({ logout }) {
                 <input type="text" placeholder="Título del juego" value={form.titulo} onChange={(e) => setForm({...form, titulo: e.target.value})} style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} required />
                 <input type="number" placeholder="Precio" value={form.precio} onChange={(e) => setForm({...form, precio: e.target.value})} style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} required />
                 <select value={form.plataforma} onChange={(e) => setForm({...form, plataforma: e.target.value})} style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', cursor: 'pointer', boxSizing: 'border-box' }}>
+                  <option style={{ background: '#1a1a2e' }}>Todas</option>
                   <option style={{ background: '#1a1a2e' }}>PC</option>
                   <option style={{ background: '#1a1a2e' }}>Xbox</option>
                   <option style={{ background: '#1a1a2e' }}>PlayStation</option>
