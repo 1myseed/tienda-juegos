@@ -20,7 +20,7 @@ export default function Tienda({ user, setUser, logout }) {
     if (plataforma) params.append('plataforma', plataforma);
     if (search) params.append('search', search);
     
-    const response = await fetch(`http://localhost:5000/api/products?${params}`);
+    const response = await fetch(`https://tienda-juegos-backend.onrender.com/api/products?${params}`);
     const data = await response.json();
     setProducts(data);
   };
