@@ -89,7 +89,7 @@ export default function Login({ setUser }) {
             marginBottom: '10px',
             textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
           }}>
-            🎮 GAMESTORE
+            🎮 DigitalPlay
           </h1>
           <p style={{ 
             color: 'rgba(255,255,255,0.7)', 
