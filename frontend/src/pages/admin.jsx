@@ -225,8 +225,7 @@ export default function Admin({ logout }) {
                           </td>
                           <td style={{ padding: '20px', textAlign: 'center', color: 'white' }}>{o.productos.length} items</td>
                           <td style={{ padding: '20px', textAlign: 'center', borderRadius: '0 12px 12px 0' }}>
-                            <button onClick={() => deleteOrder(o._id)} style={{ padding: '8px 16px', background: 'rgba(255,107,107,0.2)', color: '#ff6b6b', border: '2px solid #ff6b6b', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}>🗑️</button>
-                          </td>
+                            <button onClick={() => deleteOrder(p._id)} style={{ padding: '8px 16px', background: 'rgba(255,107,107,0.2)', color: '#ff6b6b', border: '2px solid #ff6b6b', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}>🗑️</button>
                         </tr>
                       ))}
                     </tbody>
