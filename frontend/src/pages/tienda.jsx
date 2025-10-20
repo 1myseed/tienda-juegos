@@ -16,6 +16,9 @@ export default function Tienda({ user, setUser, logout }) {
   const [bannerActual, setBannerActual] = useState(0);
   const navigate = useNavigate();
 
+  // URL del icono
+  const iconoUrl = 'https://i.ibb.co/1YZ7vVcK/cd38d169-310a-4163-95fd-532dbb7c9544.png';
+
   // Banners del hero - PUEDES CAMBIAR ESTAS IMÁGENES
   const banners = [
     {
@@ -47,6 +50,15 @@ export default function Tienda({ user, setUser, logout }) {
   useEffect(() => {
     fetchProducts();
   }, [categoria, search]);
+
+  // Filtrar productos según la categoría seleccionada
+  const productosFiltrados = products.filter(product => {
+    // Si la categoría es 'todos', mostrar todos los productos
+    if (categoria === 'todos') return true;
+    
+    // Para otras categorías, filtrar por la categoría exacta
+    return product.categoria === categoria;
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -198,15 +210,15 @@ export default function Tienda({ user, setUser, logout }) {
                 style={{
                   flex: 1,
                   padding: '18px',
-                  background: tipoCuenta === 'primaria' ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'rgba(255,255,255,0.05)',
+                  background: tipoCuenta === 'primaria' ? 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)' : 'rgba(255,255,255,0.05)',
                   color: 'white',
-                  border: tipoCuenta === 'primaria' ? 'none' : '2px solid rgba(255,255,255,0.1)',
+                  border: tipoCuenta === 'primaria' ? '2px solid #00d4ff' : '2px solid rgba(255,255,255,0.1)',
                   borderRadius: '15px',
                   cursor: 'pointer',
                   fontWeight: 'bold',
                   fontSize: '16px',
                   transition: 'all 0.3s',
-                  boxShadow: tipoCuenta === 'primaria' ? '0 10px 30px rgba(102,126,234,0.5)' : 'none'
+                  boxShadow: tipoCuenta === 'primaria' ? '0 10px 30px rgba(0,212,255,0.5)' : 'none'
                 }}
               >
                 🔐 Primaria
@@ -216,15 +228,15 @@ export default function Tienda({ user, setUser, logout }) {
                 style={{
                   flex: 1,
                   padding: '18px',
-                  background: tipoCuenta === 'secundaria' ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'rgba(255,255,255,0.05)',
+                  background: tipoCuenta === 'secundaria' ? 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)' : 'rgba(255,255,255,0.05)',
                   color: 'white',
-                  border: tipoCuenta === 'secundaria' ? 'none' : '2px solid rgba(255,255,255,0.1)',
+                  border: tipoCuenta === 'secundaria' ? '2px solid #00d4ff' : '2px solid rgba(255,255,255,0.1)',
                   borderRadius: '15px',
                   cursor: 'pointer',
                   fontWeight: 'bold',
                   fontSize: '16px',
                   transition: 'all 0.3s',
-                  boxShadow: tipoCuenta === 'secundaria' ? '0 10px 30px rgba(102,126,234,0.5)' : 'none'
+                  boxShadow: tipoCuenta === 'secundaria' ? '0 10px 30px rgba(0,212,255,0.5)' : 'none'
                 }}
               >
                 👥 Secundaria
@@ -437,14 +449,16 @@ export default function Tienda({ user, setUser, logout }) {
               </div>
 
               <div style={{ 
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+                background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)', 
                 padding: '25px', 
                 borderRadius: '20px', 
                 marginBottom: '20px',
-                textAlign: 'center'
+                textAlign: 'center',
+                border: '2px solid #00d4ff',
+                boxShadow: '0 10px 30px rgba(0,212,255,0.3)'
               }}>
                 <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '16px', marginBottom: '8px', fontWeight: '600' }}>TOTAL</p>
-                <p style={{ color: 'white', fontSize: '42px', fontWeight: 'bold', margin: 0 }}>${total}</p>
+                <p style={{ color: '#00d4ff', fontSize: '42px', fontWeight: 'bold', margin: 0 }}>${total}</p>
               </div>
 
               <button 
@@ -487,7 +501,7 @@ export default function Tienda({ user, setUser, logout }) {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center', 
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+        background: '#0a0e27',
         margin: 0,
         padding: '20px',
         overflowY: 'auto'
@@ -499,7 +513,7 @@ export default function Tienda({ user, setUser, logout }) {
             <p style={{ color: '#666', fontSize: '18px' }}>Pedido #{pedidoId.slice(-6).toUpperCase()}</p>
           </div>
 
-          <div style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '30px', borderRadius: '20px', marginBottom: '25px', boxShadow: '0 10px 30px rgba(102,126,234,0.3)' }}>
+          <div style={{ background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)', padding: '30px', borderRadius: '20px', marginBottom: '25px', boxShadow: '0 10px 30px rgba(0,212,255,0.3)', border: '2px solid #00d4ff' }}>
             <h3 style={{ marginBottom: '25px', color: 'white', fontSize: '20px' }}>💳 Datos para Transferencia</h3>
             
             <div style={{ marginBottom: '20px' }}>
@@ -572,7 +586,7 @@ export default function Tienda({ user, setUser, logout }) {
 
           <button 
             onClick={() => { setMostrarPago(false); setCarrito([]); }} 
-            style={{ width: '100%', padding: '18px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', border: 'none', borderRadius: '15px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 10px 30px rgba(102,126,234,0.4)', transition: 'transform 0.2s' }}
+            style={{ width: '100%', padding: '18px', background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)', color: 'white', border: '2px solid #00d4ff', borderRadius: '15px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 10px 30px rgba(0,212,255,0.4)', transition: 'transform 0.2s' }}
           >
             ← Volver a la Tienda
           </button>
@@ -595,13 +609,16 @@ export default function Tienda({ user, setUser, logout }) {
       overflowY: 'auto'
     }}>
       {/* Header Principal */}
-      <header style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '25px 40px', color: 'white', boxShadow: '0 5px 30px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 100 }}>
+      <header style={{ background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)', padding: '25px 40px', color: 'white', boxShadow: '0 5px 30px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '2px solid #00d4ff' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {/* Logo y Eslogan */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-            <div>
-              <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)', margin: '0 0 5px 0' }}>🎮 DigitalPlay</h1>
-              <p style={{ margin: 0, fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>Domina la cancha como nunca</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <img src={iconoUrl} alt="DigitalPlay Icon" style={{ width: '50px', height: '50px', borderRadius: '10px', boxShadow: '0 5px 20px rgba(0,212,255,0.5)' }} />
+              <div>
+                <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)', margin: '0 0 5px 0', color: '#00d4ff' }}>DigitalPlay</h1>
+                <p style={{ margin: 0, fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>Domina la cancha como nunca</p>
+              </div>
             </div>
             <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
               {user ? (
@@ -609,23 +626,23 @@ export default function Tienda({ user, setUser, logout }) {
                   <button 
                     onClick={() => setMostrarCarrito(true)}
                     style={{ 
-                      background: 'rgba(255,255,255,0.2)', 
+                      background: 'rgba(0,212,255,0.2)', 
                       padding: '10px 20px', 
                       borderRadius: '30px', 
                       fontWeight: 'bold', 
                       backdropFilter: 'blur(10px)',
-                      border: '2px solid rgba(255,255,255,0.3)',
+                      border: '2px solid rgba(0,212,255,0.5)',
                       color: 'white',
                       cursor: 'pointer',
                       fontSize: '16px',
                       transition: 'all 0.3s'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.background = 'rgba(255,255,255,0.3)';
+                      e.target.style.background = 'rgba(0,212,255,0.3)';
                       e.target.style.transform = 'scale(1.05)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.background = 'rgba(255,255,255,0.2)';
+                      e.target.style.background = 'rgba(0,212,255,0.2)';
                       e.target.style.transform = 'scale(1)';
                     }}
                   >
@@ -636,7 +653,7 @@ export default function Tienda({ user, setUser, logout }) {
                       ⚙️ Admin
                     </button>
                   )}
-                  <button onClick={logout} style={{ padding: '12px 25px', background: 'rgba(255,255,255,0.2)', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '30px', color: 'white', cursor: 'pointer', fontWeight: 'bold', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}>
+                  <button onClick={logout} style={{ padding: '12px 25px', background: 'rgba(0,212,255,0.2)', border: '2px solid rgba(0,212,255,0.5)', borderRadius: '30px', color: 'white', cursor: 'pointer', fontWeight: 'bold', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}>
                     🚪 Salir
                   </button>
                 </>
@@ -675,7 +692,7 @@ export default function Tienda({ user, setUser, logout }) {
                 fontWeight: categoria === 'todos' ? '900' : '600', 
                 fontSize: '15px', 
                 padding: '8px 0',
-                borderBottom: categoria === 'todos' ? '3px solid white' : 'none',
+                borderBottom: categoria === 'todos' ? '3px solid #00d4ff' : 'none',
                 opacity: categoria === 'todos' ? 1 : 0.7,
                 transition: 'all 0.3s'
               }}
@@ -694,7 +711,7 @@ export default function Tienda({ user, setUser, logout }) {
                 fontWeight: categoria === 'ofertas' ? '900' : '600', 
                 fontSize: '15px', 
                 padding: '8px 0',
-                borderBottom: categoria === 'ofertas' ? '3px solid white' : 'none',
+                borderBottom: categoria === 'ofertas' ? '3px solid #00d4ff' : 'none',
                 opacity: categoria === 'ofertas' ? 1 : 0.7,
                 transition: 'all 0.3s'
               }}
@@ -713,7 +730,7 @@ export default function Tienda({ user, setUser, logout }) {
                 fontWeight: categoria === 'ps-plus' ? '900' : '600', 
                 fontSize: '15px', 
                 padding: '8px 0',
-                borderBottom: categoria === 'ps-plus' ? '3px solid white' : 'none',
+                borderBottom: categoria === 'ps-plus' ? '3px solid #00d4ff' : 'none',
                 opacity: categoria === 'ps-plus' ? 1 : 0.7,
                 transition: 'all 0.3s'
               }}
@@ -732,7 +749,7 @@ export default function Tienda({ user, setUser, logout }) {
                 fontWeight: categoria === 'ps4' ? '900' : '600', 
                 fontSize: '15px', 
                 padding: '8px 0',
-                borderBottom: categoria === 'ps4' ? '3px solid white' : 'none',
+                borderBottom: categoria === 'ps4' ? '3px solid #00d4ff' : 'none',
                 opacity: categoria === 'ps4' ? 1 : 0.7,
                 transition: 'all 0.3s'
               }}
@@ -751,7 +768,7 @@ export default function Tienda({ user, setUser, logout }) {
                 fontWeight: categoria === 'ps5' ? '900' : '600', 
                 fontSize: '15px', 
                 padding: '8px 0',
-                borderBottom: categoria === 'ps5' ? '3px solid white' : 'none',
+                borderBottom: categoria === 'ps5' ? '3px solid #00d4ff' : 'none',
                 opacity: categoria === 'ps5' ? 1 : 0.7,
                 transition: 'all 0.3s'
               }}
@@ -873,9 +890,9 @@ export default function Tienda({ user, setUser, logout }) {
               width: '100%', 
               padding: '20px 25px', 
               borderRadius: '20px', 
-              border: 'none', 
+              border: '2px solid rgba(0,212,255,0.3)', 
               fontSize: '16px', 
-              background: 'rgba(255,255,255,0.1)', 
+              background: 'rgba(255,255,255,0.05)', 
               color: 'white', 
               backdropFilter: 'blur(10px)', 
               boxShadow: '0 10px 30px rgba(0,0,0,0.3)', 
@@ -883,11 +900,13 @@ export default function Tienda({ user, setUser, logout }) {
               transition: 'all 0.3s'
             }}
             onFocus={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(102,126,234,0.5)';
+              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+              e.currentTarget.style.borderColor = '#00d4ff';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,212,255,0.5)';
             }}
             onBlur={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.3)';
               e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
             }}
           />
@@ -912,13 +931,13 @@ export default function Tienda({ user, setUser, logout }) {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.5)', 
                   transition: 'transform 0.3s, box-shadow 0.3s',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(0,212,255,0.2)',
                   cursor: 'pointer',
                   position: 'relative'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-10px)';
-                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(102,126,234,0.5)';
+                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,212,255,0.5)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -968,7 +987,7 @@ export default function Tienda({ user, setUser, logout }) {
                 <div style={{ padding: '25px' }}>
                   <h3 style={{ fontSize: '20px', marginBottom: '15px', color: 'white', fontWeight: 'bold' }}>{product.titulo}</h3>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                    <p style={{ fontSize: '32px', fontWeight: '900', background: 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <p style={{ fontSize: '32px', fontWeight: '900', color: '#00d4ff' }}>
                       ${product.precio}
                     </p>
                     <span style={{ color: '#888', fontSize: '14px' }}>Stock: {product.stock}</span>
@@ -978,23 +997,23 @@ export default function Tienda({ user, setUser, logout }) {
                     style={{ 
                       width: '100%', 
                       padding: '15px', 
-                      background: user ? 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+                      background: user ? 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)' : 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)', 
                       color: 'white', 
-                      border: 'none', 
+                      border: user ? 'none' : '2px solid #00d4ff', 
                       borderRadius: '15px', 
                       cursor: 'pointer', 
                       fontWeight: 'bold',
                       fontSize: '16px',
-                      boxShadow: user ? '0 5px 20px rgba(0,212,255,0.4)' : '0 5px 20px rgba(102,126,234,0.4)',
+                      boxShadow: user ? '0 5px 20px rgba(0,212,255,0.4)' : '0 5px 20px rgba(0,212,255,0.3)',
                       transition: 'all 0.3s'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = user ? '0 8px 30px rgba(0,212,255,0.6)' : '0 8px 30px rgba(102,126,234,0.6)';
+                      e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,212,255,0.6)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'scale(1)';
-                      e.currentTarget.style.boxShadow = user ? '0 5px 20px rgba(0,212,255,0.4)' : '0 5px 20px rgba(102,126,234,0.4)';
+                      e.currentTarget.style.boxShadow = user ? '0 5px 20px rgba(0,212,255,0.4)' : '0 5px 20px rgba(0,212,255,0.3)';
                     }}
                   >
                     {user ? '🛒 Agregar al Carrito' : '🔐 Iniciar Sesión para Comprar'}
