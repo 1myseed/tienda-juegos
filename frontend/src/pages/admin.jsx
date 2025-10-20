@@ -13,6 +13,9 @@ export default function Admin({ logout }) {
   const [activeTab, setActiveTab] = useState('products');
   const navigate = useNavigate();
 
+  // URL del icono
+  const iconoUrl = 'https://i.ibb.co/1YZ7vVcK/cd38d169-310a-4163-95fd-532dbb7c9544.png';
+
   useEffect(() => {
     fetchProducts();
     fetchOrders();
@@ -148,17 +151,20 @@ export default function Admin({ logout }) {
       padding: 0,
       overflowY: 'auto'
     }}>
-      <header style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '25px 40px', color: 'white', boxShadow: '0 5px 30px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 100 }}>
+      <header style={{ background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)', padding: '25px 40px', color: 'white', boxShadow: '0 5px 30px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '2px solid #00d4ff' }}>
         <div style={{ maxWidth: '1600px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)', margin: '0 0 5px 0' }}>⚙️ Panel de Administración</h1>
-            <p style={{ margin: 0, fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>Gestiona productos, pedidos, banners y usuarios</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <img src={iconoUrl} alt="DigitalPlay Icon" style={{ width: '50px', height: '50px', borderRadius: '10px', boxShadow: '0 5px 20px rgba(0,212,255,0.5)' }} />
+            <div>
+              <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)', margin: '0 0 5px 0', color: '#00d4ff' }}>Panel Admin</h1>
+              <p style={{ margin: 0, fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>Gestiona productos, pedidos, banners y usuarios</p>
+            </div>
           </div>
           <div style={{ display: 'flex', gap: '15px' }}>
-            <button onClick={() => navigate('/')} style={{ padding: '12px 25px', background: 'rgba(255,255,255,0.2)', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '30px', color: 'white', cursor: 'pointer', fontWeight: 'bold', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}>
+            <button onClick={() => navigate('/')} style={{ padding: '12px 25px', background: 'rgba(0,212,255,0.2)', border: '2px solid rgba(0,212,255,0.5)', borderRadius: '30px', color: 'white', cursor: 'pointer', fontWeight: 'bold', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}>
               🏪 Tienda
             </button>
-            <button onClick={logout} style={{ padding: '12px 25px', background: 'rgba(255,255,255,0.2)', border: '2px solid rgba(255,255,255,0.3)', borderRadius: '30px', color: 'white', cursor: 'pointer', fontWeight: 'bold', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}>
+            <button onClick={logout} style={{ padding: '12px 25px', background: 'rgba(0,212,255,0.2)', border: '2px solid rgba(0,212,255,0.5)', borderRadius: '30px', color: 'white', cursor: 'pointer', fontWeight: 'bold', backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}>
               🚪 Salir
             </button>
           </div>
@@ -173,7 +179,7 @@ export default function Admin({ logout }) {
             style={{ 
               padding: '12px 25px', 
               background: activeTab === 'products' ? 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)' : 'rgba(255,255,255,0.05)', 
-              border: activeTab === 'products' ? 'none' : '2px solid rgba(255,255,255,0.1)', 
+              border: activeTab === 'products' ? 'none' : '2px solid rgba(0,212,255,0.3)', 
               borderRadius: '15px', 
               color: 'white', 
               cursor: 'pointer', 
@@ -190,7 +196,7 @@ export default function Admin({ logout }) {
             style={{ 
               padding: '12px 25px', 
               background: activeTab === 'banners' ? 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)' : 'rgba(255,255,255,0.05)', 
-              border: activeTab === 'banners' ? 'none' : '2px solid rgba(255,255,255,0.1)', 
+              border: activeTab === 'banners' ? 'none' : '2px solid rgba(0,212,255,0.3)', 
               borderRadius: '15px', 
               color: 'white', 
               cursor: 'pointer', 
@@ -207,7 +213,7 @@ export default function Admin({ logout }) {
             style={{ 
               padding: '12px 25px', 
               background: activeTab === 'orders' ? 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)' : 'rgba(255,255,255,0.05)', 
-              border: activeTab === 'orders' ? 'none' : '2px solid rgba(255,255,255,0.1)', 
+              border: activeTab === 'orders' ? 'none' : '2px solid rgba(0,212,255,0.3)', 
               borderRadius: '15px', 
               color: 'white', 
               cursor: 'pointer', 
@@ -224,7 +230,7 @@ export default function Admin({ logout }) {
             style={{ 
               padding: '12px 25px', 
               background: activeTab === 'admin' ? 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)' : 'rgba(255,255,255,0.05)', 
-              border: activeTab === 'admin' ? 'none' : '2px solid rgba(255,255,255,0.1)', 
+              border: activeTab === 'admin' ? 'none' : '2px solid rgba(0,212,255,0.3)', 
               borderRadius: '15px', 
               color: 'white', 
               cursor: 'pointer', 
@@ -242,7 +248,7 @@ export default function Admin({ logout }) {
         {activeTab === 'products' && (
           <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', gap: '30px' }}>
             <div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,212,255,0.2)' }}>
                 <h2 style={{ color: 'white', marginBottom: '25px', fontSize: '22px', fontWeight: 'bold' }}>
                   {editId ? '✏️ Editar Producto' : '➕ Agregar Producto'}
                 </h2>
@@ -252,7 +258,7 @@ export default function Admin({ logout }) {
                     placeholder="Título del juego" 
                     value={form.titulo} 
                     onChange={(e) => setForm({...form, titulo: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <input 
@@ -260,35 +266,35 @@ export default function Admin({ logout }) {
                     placeholder="Precio" 
                     value={form.precio} 
                     onChange={(e) => setForm({...form, precio: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <select 
                     value={form.plataforma} 
                     onChange={(e) => setForm({...form, plataforma: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', cursor: 'pointer', boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', cursor: 'pointer', boxSizing: 'border-box' }}
                   >
-                    <option style={{ background: '#1a1a2e' }}>PS4</option>
-                    <option style={{ background: '#1a1a2e' }}>PS5</option>
-                    <option style={{ background: '#1a1a2e' }}>PS4/PS5</option>
+                    <option style={{ background: '#0a0e27' }}>PS4</option>
+                    <option style={{ background: '#0a0e27' }}>PS5</option>
+                    <option style={{ background: '#0a0e27' }}>PS4/PS5</option>
                   </select>
                   <select 
                     value={form.categoria} 
                     onChange={(e) => setForm({...form, categoria: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', cursor: 'pointer', boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', cursor: 'pointer', boxSizing: 'border-box' }}
                   >
-                    <option style={{ background: '#1a1a2e' }} value="todos">Todos</option>
-                    <option style={{ background: '#1a1a2e' }} value="ofertas">Ofertas</option>
-                    <option style={{ background: '#1a1a2e' }} value="ps-plus">PS Plus</option>
-                    <option style={{ background: '#1a1a2e' }} value="ps4">PS4</option>
-                    <option style={{ background: '#1a1a2e' }} value="ps5">PS5</option>
+                    <option style={{ background: '#0a0e27' }} value="todos">Todos</option>
+                    <option style={{ background: '#0a0e27' }} value="ofertas">Ofertas</option>
+                    <option style={{ background: '#0a0e27' }} value="ps-plus">PS Plus</option>
+                    <option style={{ background: '#0a0e27' }} value="ps4">PS4</option>
+                    <option style={{ background: '#0a0e27' }} value="ps5">PS5</option>
                   </select>
                   <input 
                     type="text" 
                     placeholder="URL de la imagen" 
                     value={form.imagen} 
                     onChange={(e) => setForm({...form, imagen: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <input 
@@ -296,7 +302,7 @@ export default function Admin({ logout }) {
                     placeholder="Stock disponible" 
                     value={form.stock} 
                     onChange={(e) => setForm({...form, stock: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <button 
@@ -321,7 +327,7 @@ export default function Admin({ logout }) {
             </div>
 
             <div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,212,255,0.2)' }}>
                 <h2 style={{ color: 'white', marginBottom: '25px', fontSize: '24px', fontWeight: 'bold' }}>📦 Productos ({products.length})</h2>
                 {products.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
@@ -352,7 +358,7 @@ export default function Admin({ logout }) {
                             </td>
                             <td style={{ padding: '20px', textAlign: 'center', color: '#00d4ff', fontWeight: 'bold', fontSize: '18px' }}>${p.precio}</td>
                             <td style={{ padding: '20px', textAlign: 'center' }}>
-                              <span style={{ background: 'rgba(102,126,234,0.3)', color: '#667eea', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' }}>{p.plataforma}</span>
+                              <span style={{ background: 'rgba(0,212,255,0.2)', color: '#00d4ff', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' }}>{p.plataforma}</span>
                             </td>
                             <td style={{ padding: '20px', textAlign: 'center' }}>
                               <span style={{ background: 'rgba(0,212,255,0.2)', color: '#00d4ff', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold', textTransform: 'uppercase' }}>{p.categoria || 'todos'}</span>
@@ -391,7 +397,7 @@ export default function Admin({ logout }) {
         {activeTab === 'banners' && (
           <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', gap: '30px' }}>
             <div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,212,255,0.2)' }}>
                 <h2 style={{ color: 'white', marginBottom: '25px', fontSize: '22px', fontWeight: 'bold' }}>
                   {editBannerId ? '✏️ Editar Banner' : '➕ Agregar Banner'}
                 </h2>
@@ -401,7 +407,7 @@ export default function Admin({ logout }) {
                     placeholder="URL de la imagen del banner" 
                     value={bannerForm.imagen} 
                     onChange={(e) => setBannerForm({...bannerForm, imagen: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <input 
@@ -409,7 +415,7 @@ export default function Admin({ logout }) {
                     placeholder="Título del banner" 
                     value={bannerForm.titulo} 
                     onChange={(e) => setBannerForm({...bannerForm, titulo: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <input 
@@ -417,7 +423,7 @@ export default function Admin({ logout }) {
                     placeholder="Descripción" 
                     value={bannerForm.descripcion} 
                     onChange={(e) => setBannerForm({...bannerForm, descripcion: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   <input 
@@ -425,7 +431,7 @@ export default function Admin({ logout }) {
                     placeholder="ID del juego (para búsqueda)" 
                     value={bannerForm.juego} 
                     onChange={(e) => setBannerForm({...bannerForm, juego: e.target.value})} 
-                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '15px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                    style={{ width: '100%', padding: '15px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '15px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
                     required 
                   />
                   {bannerForm.imagen && (
@@ -460,7 +466,7 @@ export default function Admin({ logout }) {
             </div>
 
             <div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,212,255,0.2)' }}>
                 <h2 style={{ color: 'white', marginBottom: '25px', fontSize: '24px', fontWeight: 'bold' }}>🖼️ Banners del Hero ({banners.length})</h2>
                 {banners.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
@@ -476,7 +482,7 @@ export default function Admin({ logout }) {
                           background: 'rgba(255,255,255,0.03)', 
                           borderRadius: '15px', 
                           overflow: 'hidden',
-                          border: '1px solid rgba(255,255,255,0.1)',
+                          border: '1px solid rgba(0,212,255,0.2)',
                           transition: 'all 0.3s'
                         }}
                       >
@@ -533,7 +539,7 @@ export default function Admin({ logout }) {
 
         {/* Contenido de Pedidos */}
         {activeTab === 'orders' && (
-          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,212,255,0.2)' }}>
             <h2 style={{ color: 'white', marginBottom: '25px', fontSize: '24px', fontWeight: 'bold' }}>📋 Pedidos ({orders.length})</h2>
             {orders.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
@@ -587,7 +593,7 @@ export default function Admin({ logout }) {
         {/* Contenido de Admins */}
         {activeTab === 'admin' && (
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '25px', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,212,255,0.2)' }}>
               <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                 <div style={{ fontSize: '60px', marginBottom: '15px' }}>👑</div>
                 <h2 style={{ color: 'white', fontSize: '28px', fontWeight: 'bold', marginBottom: '10px' }}>Gestión de Administradores</h2>
@@ -598,11 +604,11 @@ export default function Admin({ logout }) {
                 placeholder="email@ejemplo.com" 
                 value={adminEmail} 
                 onChange={(e) => setAdminEmail(e.target.value)} 
-                style={{ width: '100%', padding: '18px', margin: '12px 0', borderRadius: '12px', border: 'none', fontSize: '16px', background: 'rgba(255,255,255,0.1)', color: 'white', boxSizing: 'border-box' }} 
+                style={{ width: '100%', padding: '18px', margin: '12px 0', borderRadius: '12px', border: '2px solid rgba(0,212,255,0.3)', fontSize: '16px', background: 'rgba(255,255,255,0.05)', color: 'white', boxSizing: 'border-box' }} 
               />
               <button 
                 onClick={makeAdmin} 
-                style={{ width: '100%', padding: '18px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', border: 'none', borderRadius: '12px', cursor: 'pointer', fontWeight: 'bold', fontSize: '18px', boxShadow: '0 5px 20px rgba(102,126,234,0.4)', transition: 'transform 0.2s', marginTop: '10px' }}
+                style={{ width: '100%', padding: '18px', background: 'linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)', color: 'white', border: 'none', borderRadius: '12px', cursor: 'pointer', fontWeight: 'bold', fontSize: '18px', boxShadow: '0 5px 20px rgba(0,212,255,0.4)', transition: 'transform 0.2s', marginTop: '10px' }}
                 onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
