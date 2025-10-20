@@ -601,7 +601,7 @@ export default function Tienda({ user, setUser, logout }) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <div>
               <h1 style={{ fontSize: '32px', fontWeight: '900', letterSpacing: '2px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)', margin: '0 0 5px 0' }}>🎮 DigitalPlay</h1>
-              <p style={{ margin: 0, fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>Domina la cancha como nunca</p>
+              <p style={{ margin: 0, fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>Tu Mundo Gamer Digital</p>
             </div>
             <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
               {user ? (
